@@ -21,6 +21,13 @@ class DateTime extends \DateTime
 
         $mynow = $GLOBALS['mynow'];
         parent::__construct();
-        $this->setTimestamp((int)$mynow->getTimestamp());
+
+        try {
+            $this->setTimestamp((int)$mynow->getTimestamp());
+        } catch(\Exception $e) {
+            $this->setTimestamp(null);
+            $this->modify($time);
+            // No exception returned
+        }
     }
 }

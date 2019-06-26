@@ -21,6 +21,10 @@ class FileLoader implements LoaderInterface
 
     public function load()
     {
-        return (int)file_get_contents($this->filename);
+        try {
+            return (int)file_get_contents($this->filename);
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 }  

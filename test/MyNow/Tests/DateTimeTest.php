@@ -65,4 +65,15 @@ class DateTimeTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($now1->format('Y-m-d'), $now2->format('Y-m-d'));
         $this->assertEquals($now1->format('Y-m-d H:i:s'), $now2->format('Y-m-d H:i:s'));
     }
+
+    public function testFileNotExists()
+    {
+        MyNow::create('randompath' . rand(1, 100));
+
+        $date = date('2019-06-01');
+        $now1 = new \DateTime($date);
+        $now2 = new \MyNow\DateTime($date);
+
+        $this->assertEquals($now1, $now2);
+    }
 }
