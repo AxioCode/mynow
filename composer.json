@@ -1,5 +1,5 @@
 {
-    "name": "AxioCode/mynow",
+    "name": "axiocode/mynow",
     "type": "library",
     "license": "BSD-3-Clause",
     "description": "Load your own time in order to simulate the current date and time.",
